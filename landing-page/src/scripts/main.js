@@ -3,15 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsButton = document.getElementById('projects');
     const aboutMeButton = document.getElementById('about-me');
 
+  
+    const isInPagesDirectory = window.location.href.includes('/pages/');
+    
+   
+    const basePath = isInPagesDirectory ? '../' : './';
+
     homeButton.addEventListener('click', () => {
-        alert('Home button clicked');
+        window.location.href = `${basePath}index.html`;
     });
 
     projectsButton.addEventListener('click', () => {
-        alert('Projects button clicked');
+        window.location.href = `${basePath}pages/projects.html`;
     });
 
     aboutMeButton.addEventListener('click', () => {
-        alert('About Me button clicked');
+        window.location.href = `${basePath}pages/about.html`;
     });
 });

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
 * {
     margin: 0;
@@ -25,8 +25,8 @@ header {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,10 +35,12 @@ header {
 
 h1 {
     color: white;
+    font-family: 'Poppins', sans-serif;
     font-size: 2rem;
-    font-weight: 600;
-    margin-top: 1rem;
+    font-weight: 300;
     display: flex;
+    margin-left: 0;
+    gap: 2px;
     justify-content: center;
 }
 
@@ -51,12 +53,13 @@ h1 span {
 .spin-letter {
     display: inline-block;
     animation: spin 6s ease-out infinite;
+    animation-fill-mode: backwards;
 }
 
 .spin-letter:nth-child(1) { animation-delay: 0.0s; }
-.spin-letter:nth-child(2) { animation-delay: 0.2s; }
-.spin-letter:nth-child(3) { animation-delay: 0.4s; }
-.spin-letter:nth-child(4) { animation-delay: 0.6s; }
+.spin-letter:nth-child(2) { animation-delay: 0.1s; }
+.spin-letter:nth-child(3) { animation-delay: 0.2s; }
+.spin-letter:nth-child(4) { animation-delay: 0.3s; }
 .spin-letter:nth-child(5) { animation-delay: 0.8s; }
 .spin-letter:nth-child(6) { animation-delay: 1.0s; }
 .spin-letter:nth-child(7) { animation-delay: 1.2s; }
@@ -108,4 +111,141 @@ button:hover {
 
 button:active {
     transform: translateY(0);
+}
+
+.about-container {
+    margin-top: 120px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-container h2 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.about-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+    border-radius: 2px;
+}
+
+.about-content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    color: white;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-content:hover {
+    transform: translateY(-5px);
+}
+
+main {
+    margin-top: 120px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    background: rgba(26, 26, 26, 0.9);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 80%;
+    max-width: 1000px;
+    position: relative;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content::before {
+    content: attr(data-page);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    color: #cccccc;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-link {
+    display: inline-block;
+    background: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background: #333333;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 1rem;
+        margin-top: 100px;
+    }
+
+    .about-container h2 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        padding: 1.5rem;
+    }
 }
